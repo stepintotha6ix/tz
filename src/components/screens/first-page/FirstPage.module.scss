@@ -1,0 +1,77 @@
+.wrapper {
+  @apply max-w-[1440px] mx-auto;
+
+  .title {
+    @apply text-4xl font-bold mt-[71px] mb-[89px] mx-auto text-center;
+  }
+  .colorBoxes {
+    @apply text-white flex gap-[30px] mb-[171px];
+    .redBox {
+      @apply relative px-[71px] py-[55px] bg-red;
+      > h1 {
+        @apply mb-6 mt-0 text-4xl;
+      }
+      > p {
+        @apply font-light text-xl;
+      }
+    }
+    // треугольники на краю блока
+    .redBox::before {
+      content: "";
+      @apply absolute top-0 right-0 w-10 h-10 bg-[#CD1800];
+      clip-path: polygon(0 0, 100% 0, 100% 100%);
+      transform: rotate(180deg); /* Переворачиваем "уголок" */
+    }
+    .redBox::after {
+      content: "";
+      @apply absolute -top-[1px] -right-[1px] w-[40px] h-[40px] bg-white;
+      clip-path: polygon(0 0, 100% 0, 100% 100%);
+    }
+
+    .blackBox {
+      @apply px-[71px] py-[55px] bg-[#2D2C2A];
+      > h1 {
+        @apply mb-6 mt-0 text-4xl;
+      }
+      > ul {
+        > li::marker {
+          @apply text-red font-light text-xl;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 800px) {
+  .wrapper {
+    @apply px-[15px];
+    .title {
+      @apply text-[28px] text-[#262626] text-left font-medium mt-[28px] mb-[34px];
+    }
+    .colorBoxes {
+      @apply flex-col gap-[23px] mb-10;
+      .redBox {
+        @apply py-[31px] px-[17px];
+        h1 {
+          @apply text-[25px] mb-[22px];
+        }
+        ul {
+          > li {
+            @apply text-[20px];
+          }
+        }
+      }
+      .blackBox {
+        @apply py-[31px] px-[17px];
+        h1 {
+          @apply text-[25px] mb-[22px];
+        }
+        ul {
+          > li {
+            @apply text-[20px];
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,15 +1,31 @@
+import MainProvider from "@/components/providers/main-provider/MainProvider";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import localFont from "next/font/local";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const myFont = localFont({
+  src: [
+    {
+      path: "../assets/fonts/static/StyreneAWeb-Light.ttf",
+      weight: "300",
+      style: "light",
+    },
+    {
+      path: "../assets/fonts/static/StyreneAWeb-Regular.ttf",
+      weight: "400",
+      style: "normal",
+    },
+    {
+      path: "../assets/fonts/static/StyreneAWeb-Medium.ttf",
+      weight: "500",
+      style: "medium",
+    },
+    {
+      path: "../assets/fonts/static/StyreneAWeb-Bold.ttf",
+      weight: "700",
+      style: "bold",
+    },
+  ],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -24,10 +40,8 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+      <body className={myFont.className}>
+        <MainProvider>{children}</MainProvider>
       </body>
     </html>
   );

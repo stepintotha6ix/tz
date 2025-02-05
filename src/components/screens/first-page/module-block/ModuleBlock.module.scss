@@ -1,0 +1,71 @@
+.title {
+  @apply text-[26px] font-bold mb-[90px];
+}
+
+.modules {
+  @apply flex mb-[130px];
+
+  .skillsContainer {
+    @apply flex gap-[45px];
+    .skillsBlock {
+      @apply flex;
+      > h2 {
+        @apply relative my-0 font-normal text-[32px] mr-24;
+      }
+
+      > h2::before {
+        @apply content-[""] absolute -top-[30px] left-0 w-full h-[2px] bg-[#FF3535];
+      }
+      > ul {
+        @apply my-0 max-w-[373px];
+        > li {
+          @apply my-0 text-base font-light;
+        }
+        > li::marker {
+          @apply text-red;
+        }
+      }
+    }
+  }
+}
+@media (max-width: 800px) {
+  .title {
+    @apply text-[22px] mb-[27px];
+  }
+  .modules {
+    @apply flex-col mb-[34px];
+    .skillsContainer {
+      @apply flex-col gap-[10px];
+      .skillsBlock {
+        @apply flex-col w-full;
+
+        .moduleTitle {
+          @apply py-2 w-full;
+        }
+        .active {
+          @apply bg-[#FF3535] text-white font-light;
+        }
+        .moduleIcon {
+          @apply font-light px-5;
+        }
+        .inactive {
+          @apply bg-[#F7F7F7] text-black font-light;
+        }
+        .moduleButton {
+          @apply bg-[#F7F7F7] cursor-pointer w-full;
+        }
+        > h2::before {
+          @apply hidden;
+        }
+
+        .skillsList {
+          @apply mt-[17px] overflow-hidden opacity-0 max-h-0 transition-all duration-500 ease-in-out;
+        }
+
+        .skillsList.open {
+          @apply opacity-100 max-h-[500px]; /* Adjust max-height based on expected content */
+        }
+      }
+    }
+  }
+}
