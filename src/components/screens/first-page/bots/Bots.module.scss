@@ -1,0 +1,24 @@
+.bots {
+  @apply gap-2;
+  display: grid;
+  grid-template-columns: repeat(3, 3fr);
+
+  .bot {
+    @apply w-full text-center  bg-[#252d40] rounded-md text-white;
+    aspect-ratio: 1/1;
+    img {
+      @apply mx-auto mt-6 ;
+    }
+    p {
+      @apply my-0;
+    }
+  }
+}
+
+.timeButtons {
+  @apply w-full mt-3 text-gray flex justify-between;
+
+  .button {
+    @apply border-none bg-transparent text-gray  text-sm font-medium;
+  }
+}

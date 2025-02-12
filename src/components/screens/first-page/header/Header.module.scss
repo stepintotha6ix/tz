@@ -1,0 +1,32 @@
+.header{
+    @apply pt-6;
+    .topBlock{
+        @apply flex  justify-between items-center mx-5 ;
+
+    }
+    .bottomBlock{
+        @apply text-gray flex justify-between mt-5 font-bold; 
+        .capitalTitle{
+            @apply my-0;
+        
+            .capital{
+                @apply text-white text-4xl my-2 font-normal;
+            }
+        }
+        .rightBlock{
+            @apply mt-6 font-bold;
+            .balance{
+                @apply mb-1 mt-0;
+                > b{
+                    @apply text-white;
+                }
+            }
+            .onHold{
+                @apply my-0;
+                > b{
+                    @apply text-white;
+                }
+            }
+        }
+    }
+}
