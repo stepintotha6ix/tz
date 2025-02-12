@@ -1,32 +1,13 @@
 import MainProvider from "@/components/providers/main-provider/MainProvider";
 import type { Metadata } from "next";
-import localFont from "next/font/local";
-
-const myFont = localFont({
-  src: [
-    {
-      path: "../assets/fonts/static/StyreneAWeb-Light.ttf",
-      weight: "300",
-      style: "light",
-    },
-    {
-      path: "../assets/fonts/static/StyreneAWeb-Regular.ttf",
-      weight: "400",
-      style: "normal",
-    },
-    {
-      path: "../assets/fonts/static/StyreneAWeb-Medium.ttf",
-      weight: "500",
-      style: "medium",
-    },
-    {
-      path: "../assets/fonts/static/StyreneAWeb-Bold.ttf",
-      weight: "700",
-      style: "bold",
-    },
-  ],
-  display: "swap",
-});
+import { Roboto } from 'next/font/google'
+ 
+const roboto = Roboto({
+  weight: ['400', '700'],
+  style: ['normal', 'italic'],
+  subsets: ['latin'],
+  display: 'swap',
+})
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -40,7 +21,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={myFont.className}>
+      <body className={roboto.className}>
         <MainProvider>{children}</MainProvider>
       </body>
     </html>
